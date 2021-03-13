@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #su{
+            width: 69px;
+            height: 120px;
+            background-color: darkmagenta;
+        }
+    </style>
+</head>
+<body>
+ <h2>Click function</h2>
+ <p>When thd button is clicked, the box background color changes and the number of clicks keep incrementing</p>
+    <div id="su"></div>
+    <button id="likeCount">click me</button>
+    <p>this button has been clicked <span id="displayCount" style="color: tomato;"> (0)</span> times</p> 
+     <br>
+
+    <p><input id="sech" placeholder="search field" ><input type="button" value="GO" id="sbtn"></p>
+    <p>A search function to output names with initials</p>   
+    <ul>
+            <li>Americans</li>
+            <li>Mexicans</li>
+            <li>Deutsch</li>
+            <li>Cambodia</li>
+            <li>Botswani</li>
+            <li>Namibian</li>
+            <li>Portuguese</li>
+            <li>Zambians</li>
+            <li> Nigerians</li>
+            <li>South Africans</li>
+            <li>Lesoths</li>
+            <li>Tunisians</li>
+            <li>Senegalese</li>
+            <li>Ethiopian</li>
+            <li>Glaswegian</li>
+            <li>Brazilians</li>
+            <li>Japanese</li>
+            <li>Manila and Latvia</li>
+        </ul>
+        
+        <script>
+        let button = document.getElementById('btn');
+        let lbutton = document.getElementById('likeCount');
+        let display = document.getElementById('displayCount');
+        let count =(0);
+        
+//let count = 0;
+       // button.addEventListener('click', function(){
+         //   document.getElementById('su').style.backgroundColor ='green';
+        //})
+           /* lbutton.onClick = function(){
+                let count = 0;
+                count++;
+                display.innerHTML = count;
+            }
+        })*/
+      //  let inputElem = document.getElementById("sech");
+       // let searchButton = document.getElementById("sbtn");
+        let inputElem = document.getElementById("sech");
+
+      // searchButton
+      inputElem = document.addEventListener('input', handleSearch, false);
+       function handleSearch(){
+          
+        let inputElem = document.getElementById("sech");
+        inputValue = inputElem.value.toLowerCase();
+          
+           let reg = RegExp("\\b" + inputValue);
+        let liElem = document.querySelectorAll("li");
+
+        [... liElem].forEach((li,index,array)=>{
+            let innerTextLowerCase = li.innerText.toLowerCase();
+            if(reg.exec(innerTextLowerCase)){
+                li.style.display = "block";
+            }else{
+                li.style.display = "none";
+            }
+        })
+       /* for (let i =0;i<li.length; i++)
+        if(li[i].innerText.includes(inputValue)){
+            li[i].style.display ="block";
+        }else{
+            li[i].style.display = "none";
+        }
+       }*/
+       }
+    lbutton.addEventListener('click', fort, false)
+        function  fort() {
+       //let count = 0;
+        count++;
+        display.innerHTML=count;
+        document.getElementById('su').style.backgroundColor ='yellow';
+    }
+        
+    </script>
+</body>
+</html>
+
